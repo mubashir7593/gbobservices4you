@@ -375,6 +375,8 @@ I want to place an order for the following website.
 
 Website: ${publisher.website}
 
+Niche: ${publisher.niche}
+
 MOZ DA: ${publisher.mozDA}
 
 AS: ${publisher.as}
@@ -436,7 +438,7 @@ function renderPublishers(data) {
             document.createElement("td");
 
 
-        cell.colSpan = 9;
+        cell.colSpan = 10;
 
         cell.className =
             "table-message";
@@ -468,6 +470,15 @@ function renderPublishers(data) {
         row.appendChild(
             createWebsiteCell(
                 publisher.website
+            )
+        );
+
+
+        /* Niche */
+
+        row.appendChild(
+            createCell(
+                publisher.niche
             )
         );
 
@@ -610,6 +621,8 @@ function searchPublishers(searchTerm) {
 
                     publisher.website,
 
+                    publisher.niche,
+
                     publisher.mozDA,
 
                     publisher.as,
@@ -668,7 +681,7 @@ async function loadPublishers() {
             document.createElement("td");
 
 
-        loadingCell.colSpan = 9;
+        loadingCell.colSpan = 10;
 
         loadingCell.className =
             "table-message";
@@ -762,6 +775,18 @@ async function loadPublishers() {
                     "URL",
                     "Site",
                     "Domain"
+                ]
+            );
+
+
+        const nicheIndex =
+            findColumn(
+                headers,
+                [
+                    "Niche",
+                    "niche",
+                    "Category",
+                    "Topic"
                 ]
             );
 
@@ -864,6 +889,11 @@ async function loadPublishers() {
 
                         website:
                             row[websiteIndex] || "",
+
+                        niche:
+                            nicheIndex !== -1
+                                ? row[nicheIndex] || ""
+                                : "",
 
                         mozDA:
                             mozDAIndex !== -1
@@ -970,7 +1000,7 @@ async function loadPublishers() {
             document.createElement("td");
 
 
-        cell.colSpan = 9;
+        cell.colSpan = 10;
 
         cell.className =
             "table-message";
