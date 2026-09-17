@@ -375,6 +375,8 @@ I want to place an order for the following website.
 
 Website: ${publisher.website}
 
+Country: ${publisher.country}
+
 Niche: ${publisher.niche}
 
 MOZ DA: ${publisher.mozDA}
@@ -438,7 +440,7 @@ function renderPublishers(data) {
             document.createElement("td");
 
 
-        cell.colSpan = 10;
+        cell.colSpan = 11;
 
         cell.className =
             "table-message";
@@ -470,6 +472,15 @@ function renderPublishers(data) {
         row.appendChild(
             createWebsiteCell(
                 publisher.website
+            )
+        );
+
+
+        /* Country */
+
+        row.appendChild(
+            createCell(
+                publisher.country
             )
         );
 
@@ -621,6 +632,8 @@ function searchPublishers(searchTerm) {
 
                     publisher.website,
 
+                    publisher.country,
+
                     publisher.niche,
 
                     publisher.mozDA,
@@ -681,7 +694,7 @@ async function loadPublishers() {
             document.createElement("td");
 
 
-        loadingCell.colSpan = 10;
+        loadingCell.colSpan = 11;
 
         loadingCell.className =
             "table-message";
@@ -775,6 +788,19 @@ async function loadPublishers() {
                     "URL",
                     "Site",
                     "Domain"
+                ]
+            );
+
+
+        const countryIndex =
+            findColumn(
+                headers,
+                [
+                    "Country",
+                    "country",
+                    "Location",
+                    "Region",
+                    "GEO"
                 ]
             );
 
@@ -890,6 +916,11 @@ async function loadPublishers() {
                         website:
                             row[websiteIndex] || "",
 
+                        country:
+                            countryIndex !== -1
+                                ? row[countryIndex] || ""
+                                : "",
+
                         niche:
                             nicheIndex !== -1
                                 ? row[nicheIndex] || ""
@@ -1000,7 +1031,7 @@ async function loadPublishers() {
             document.createElement("td");
 
 
-        cell.colSpan = 10;
+        cell.colSpan = 11;
 
         cell.className =
             "table-message";
