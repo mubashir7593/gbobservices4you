@@ -10,7 +10,7 @@ const WHATSAPP_NUMBER = "https://wa.me/+923234424639";
 
 
 const GOOGLE_SHEET_CSV_URL =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRikIr5e-Z7Sjp3jKxYm69fxD_ypqU_2NngUvZOcg0-ibSCJNfZPnl7tlvIEex3L9RH82DPBmEGLL-X/pub?gid=0&single=true&output=csv";
+    "https://docs.google.com/spreadsheets/d/1k80dCWUDlwp8ud-y3J891RCEJlX9NN9yfi3IqTVwzR0/export?gid=722316366&single=true&output=csv";
 
 
 /* ================= GLOBAL DATA ================= */
